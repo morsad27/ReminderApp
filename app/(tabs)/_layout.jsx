@@ -1,13 +1,13 @@
 import { Tabs } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Image, View } from "react-native";
-// import { ReminderProvider } from "../../constant/reminderContext";
-// import { TodoProvider } from "../../constant/todoContext";
+import { ReminderProvider } from "../../constant/reminderContext";
+import { TodoProvider } from "../../constant/todoContext";
 
 const TabsLayout = () => {
   return (
-    // <ReminderProvider>
-    //   <TodoProvider>
+    <ReminderProvider>
+      <TodoProvider>
         <SafeAreaProvider>
           <Tabs
             screenOptions={({ route }) => ({
@@ -104,8 +104,8 @@ const TabsLayout = () => {
             />
           </Tabs>
         </SafeAreaProvider>
-    //   </TodoProvider>
-    // </ReminderProvider>
+       </TodoProvider>
+     </ReminderProvider>
   );
 };
 
