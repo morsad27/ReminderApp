@@ -5,16 +5,33 @@ import { TodoContext } from "../constant/todoContext";
 import { ReminderContext } from "../constant/reminderContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const header = () => {
-  const { todoList, addTodo } = useContext(TodoContext);  
+const Header = () => {
+  const { todoList } = useContext(TodoContext);  
   const { reminderList, addReminder } = useContext(ReminderContext);
+  const [reminders, setReminders] = useState([]);
+
+  useEffect(() => {
+    const fetchReminders = async () => {
+      try {
+        const storedReminders = await AsyncStorage.getItem("reminders");
+        if (storedReminders) {
+          setReminders(JSON.parse(storedReminders));
+        }
+      } catch (error) {
+        console.error("Error fetching reminders:", error);
+      }
+    };
+
+    fetchReminders();
+  }, []); // Runs only once when the component mounts
 
   return (
     <View style={styles.container}>
       <Text style={styles.logoText}>Re:Mind</Text>
       <View style={styles.circleRow}>
         <View style={styles.circle}>
-          <Text style={styles.text}>{reminderList.length}</Text>
+          <Text style={styles.text}>{reminders.length}</Text>  
+          {/* Using reminders.length instead of reminderList.length */}
           <Text style={styles.textTitle}>Reminds</Text>
         </View>
 
@@ -24,10 +41,10 @@ const header = () => {
         </View>
       </View>
       <Text style={styles.bottomText}>
-        Never mind ill find someone like you
+        Never mind, I'll find someone like you.
       </Text>
     </View>
   );
 };
 
-export default header;
+export default Header;
