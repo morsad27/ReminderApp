@@ -6,10 +6,25 @@ import { ReminderContext } from "../constant/reminderContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Header = () => {
-  const { todoList } = useContext(TodoContext);  
   const { reminderList, addReminder } = useContext(ReminderContext);
   const [reminders, setReminders] = useState([]);
 
+  const [todoList, setTodoList] = useState([TodoContext]);
+
+  useEffect(() => {
+    loadTodoList();
+  }, []);
+
+  const loadTodoList = async () => {
+    try {
+      const storedList = await AsyncStorage.getItem("TodoList");
+      if (storedList !== null) {
+        setTodoList(JSON.parse(storedList));
+      }
+    } catch (err) {
+      alert("Error loading to-do list: " + err);
+    }
+  };
   useEffect(() => {
     const fetchReminders = async () => {
       try {
