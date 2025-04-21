@@ -91,13 +91,14 @@ const Index = ({
 
   //scheduling Expo Notifications
   const scheduleExpoNotification = async (title, scheduledDate) => {
-    await Notifications.scheduleNotificationAsync({
+    const notificationId = await Notifications.scheduleNotificationAsync({
       content: {
         title: `Reminder: ${title}`,
         body: description,
       },
       trigger: scheduledDate,
     });
+    return notificationId;
   };
 
   //add or update reminder
@@ -118,7 +119,7 @@ const Index = ({
       return Alert.alert("Invalid Time", "Please select a future time.");
     }
 
-    await scheduleExpoNotification(title, reminderDate);
+    const notificationId = await scheduleExpoNotification(title, reminderDate);
 
     const newReminder = {
       id: editingId || Date.now().toString(),
@@ -127,6 +128,7 @@ const Index = ({
       date: selectedDate,
       time: selectedTime,
       timestamp: reminderDate.getTime(),
+      notificationId,
     };
 
     let updatedReminders = [...reminders];
@@ -142,6 +144,7 @@ const Index = ({
 
     setReminders(updatedReminders);
     await AsyncStorage.setItem("reminders", JSON.stringify(updatedReminders));
+    router.back();
 
     setTitle("");
     setDescription("");
@@ -152,13 +155,16 @@ const Index = ({
 
   //delete reminder
   const deleteReminder = async (id) => {
-    if (typeof id !== "string") {
-      console.warn("Expected a string ID but got:", id);
-      return;
+    const idStr = String(id);
+    const reminderToDelete = reminders.find((r) => r.id === idStr);
+  
+    if (reminderToDelete?.notificationId) {
+      await Notifications.cancelScheduledNotificationAsync(reminderToDelete.notificationId);
     }
-    const updatedReminders = reminders.filter((item) => item.id !== id);
+    const updatedReminders = reminders.filter((item) => item.id !== idStr);
     setReminders(updatedReminders);
     await AsyncStorage.setItem("reminders", JSON.stringify(updatedReminders));
+    router.back();
   };
 
   //confirm time selection
@@ -224,7 +230,7 @@ const Index = ({
               <Pressable
                 //on click it will save updated texts/changes
                 style={styles.updateButton}
-                onPress={() => deleteReminder(selectedItem.id)}
+                onPress={() => addReminder()}
               >
                 <Text style={styles.addButtonText}>Update</Text>
               </Pressable>
@@ -232,8 +238,13 @@ const Index = ({
                 //remove from list
                 style={styles.deleteButton}
                 onPress={() => {
-                  if (selectedItem) {
-                    deleteReminder(selectedItem.id);
+                  if (editingId) {
+                    deleteReminder(editingId);
+                    setEditingId(null);
+                    setTitle("");
+                    setDescription("");
+                    setSelectedDate("Select Date");
+                    setSelectedTime("Select Time");
                   } else {
                     Alert.alert("Error", "No item selected for deletion.");
                   }
@@ -263,7 +274,7 @@ const Index = ({
                 </Text>
 
                 <Text>
-                  🕒{item.time} {"\n"} 
+                  🕒{item.time} {"\n"}
                   🗓️ {item.date}
                 </Text>
                 <Pressable
