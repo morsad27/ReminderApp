@@ -8,8 +8,29 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useRef } from "react";
 import { useRouter } from "expo-router";
+import * as Notifications from "expo-notifications";
 
 export default function SplashScreen() {
+  useEffect(() => {
+    const subscription = Notifications.addNotificationReceivedListener(
+      (notification) => {
+        console.log("Notification received:", notification);
+      }
+    );
+
+    return () => subscription.remove();
+  }, []);
+
+  useEffect(() => {
+    async function getPermission() {
+      const { status } = await Notifications.requestPermissionsAsync();
+      if (status !== "granted") {
+        alert("Permission for notifications denied!");
+      }
+    }
+    getPermission();
+  }, []);
+
   const router = useRouter();
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.5)).current;
