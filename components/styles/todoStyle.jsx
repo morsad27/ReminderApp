@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   icon: {
     height: 24,
     width: 24,
-    marginRight: 10,
+    marginLeft: -12,
   },
   container: {
     flex: 1,
@@ -70,4 +70,8 @@ export const styles = StyleSheet.create({
     textDecorationLine: "line-through",
     color: "#A9A9A9",
   },
+  row:{
+    display: 'flex',
+    flexDirection: 'row',
+  }
 });
