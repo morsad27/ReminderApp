@@ -38,7 +38,6 @@ const Index = ({
   const [isCalendarVisible, setIsCalendarVisible] = useState(false);
   const [time, setTime] = useState({ hours: 0, minutes: 0 });
   const [selectedItem, setSelectedItem] = useState(null);
-  const [isEditMode, setIsEditMode] = useState();
 
   //load reminder pag focus sa page
   useFocusEffect(
@@ -122,7 +121,7 @@ const Index = ({
     await scheduleExpoNotification(title, reminderDate);
 
     const newReminder = {
-      id: editingId || Date.now().toString,
+      id: editingId || Date.now().toString(),
       title,
       description,
       date: selectedDate,
