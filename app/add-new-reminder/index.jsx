@@ -182,7 +182,7 @@ const Index = ({
       return Alert.alert("Invalid Time", "Please select a future time.");
     }
 
-    await scheduleExpoNotification(title, reminderDate);
+    const notificationId = await scheduleExpoNotification(title, reminderDate); // <-- schedule and get ID
 
     const newReminder = {
       id: editingId || Date.now().toString(),
@@ -191,10 +191,10 @@ const Index = ({
       date: selectedDate,
       time: selectedTime,
       timestamp: reminderDate.getTime(),
+      notificationId, // <-- attach here
     };
 
     if (editingId !== null) {
-      // Call editReminder here
       await handleEditReminder(editingId, newReminder);
     } else {
       const updatedReminders = [...reminders, newReminder];
@@ -215,15 +215,23 @@ const Index = ({
     const idStr = String(id);
     const reminderToDelete = reminders.find((r) => r.id === idStr);
 
+    // Cancel the scheduled notification
     if (reminderToDelete?.notificationId) {
-      await Notifications.cancelScheduledNotificationAsync(
-        reminderToDelete.notificationId
-      );
+      try {
+        await Notifications.cancelScheduledNotificationAsync(
+          reminderToDelete.notificationId
+        );
+        console.log("Cancelled notification:", reminderToDelete.notificationId);
+      } catch (error) {
+        console.error("Failed to cancel notification:", error);
+      }
     }
+
+    // Remove from list and storage
     const updatedReminders = reminders.filter((item) => item.id !== idStr);
     setReminders(updatedReminders);
     await AsyncStorage.setItem("reminders", JSON.stringify(updatedReminders));
-    router.back();
+    router.push("/");
   };
 
   //confirm time selection
@@ -292,6 +300,8 @@ const Index = ({
                   setSelectedDate("Select Date");
                   setSelectedTime("Select Time");
                   setEditingId(null);
+
+                  Alert.alert("Success", "Reminder deleted successfully!");
                   router.back();
                 }}
               >
