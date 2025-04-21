@@ -59,10 +59,6 @@ export default function SplashScreen() {
 
   return (
     <View style={styles.container}>
-      <ImageBackground
-        style={styles.welcomeImage}
-        source={require("../assets/images/image.png")}
-      >
         <Animated.View
           style={[
             styles.iconContainer,
@@ -75,7 +71,6 @@ export default function SplashScreen() {
           <Ionicons name="notifications" size={100} color="white" />
           <Text style={styles.appName}>Re:Mind</Text>
         </Animated.View>
-      </ImageBackground>
     </View>
   );
 }

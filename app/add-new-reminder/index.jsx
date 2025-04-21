@@ -24,6 +24,7 @@ const Index = ({
   showlist = false,
   showdelete = false,
   showAdd = true,
+  editReminder,
 }) => {
   const router = useRouter();
   const params = useLocalSearchParams();
@@ -67,19 +68,17 @@ const Index = ({
     }
   };
 
-  //editing make the fields editable
+  //for fields editable
   useEffect(() => {
-    if (params.editReminder) {
-      const reminder = JSON.parse(decodeURIComponent(params.editReminder));
+    if (editReminder) {
+      const reminder = JSON.parse(decodeURIComponent(editReminder));
       setTitle(reminder.title);
       setDescription(reminder.description);
       setSelectedDate(reminder.date);
       setSelectedTime(reminder.time);
       setEditingId(reminder.id);
-
-      console.log("Editing reminder ID:", reminder.id);
     }
-  }, [params]);
+  }, [editReminder]);
 
   //date selection
   const handleDateChange = (date) => {
@@ -91,13 +90,78 @@ const Index = ({
 
   //scheduling Expo Notifications
   const scheduleExpoNotification = async (title, scheduledDate) => {
-    await Notifications.scheduleNotificationAsync({
+    const notificationId = await Notifications.scheduleNotificationAsync({
       content: {
         title: `Reminder: ${title}`,
         body: description,
       },
       trigger: scheduledDate,
     });
+    return notificationId;
+  };
+
+  const handleEditReminder = async (id, newData) => {
+    try {
+      const updatedList = reminders.map((item) =>
+        item.id === id ? { ...item, ...newData } : item
+      );
+      setReminders(updatedList);
+      await AsyncStorage.setItem("reminders", JSON.stringify(updatedList));
+    } catch (err) {
+      alert("Error updating reminder: " + err);
+    }
+  };
+
+  const updateReminder = async () => {
+    if (!editingId) {
+      return Alert.alert("Error", "No reminder selected for editing.");
+    }
+
+    const [month, day, year] = selectedDate.split("/");
+    const [hours, minutes] = selectedTime.split(":").map(Number);
+    const updatedDate = new Date(year, month - 1, day, hours, minutes);
+
+    if (updatedDate < new Date()) {
+      return Alert.alert("Invalid Time", "Please select a future time.");
+    }
+
+    try {
+      const oldReminder = reminders.find((r) => r.id === editingId);
+
+      // cancel previous notification if it exists
+      if (oldReminder?.notificationId) {
+        await Notifications.cancelScheduledNotificationAsync(
+          oldReminder.notificationId
+        );
+      }
+
+      // schedule new notification
+      const newNotificationId = await scheduleExpoNotification(
+        title,
+        updatedDate
+      );
+
+      const updated = {
+        id: editingId,
+        title,
+        description,
+        date: selectedDate,
+        time: selectedTime,
+        timestamp: updatedDate.getTime(),
+        notificationId: newNotificationId,
+      };
+
+      const updatedList = reminders.map((item) =>
+        item.id === editingId ? updated : item
+      );
+      setReminders(updatedList);
+      await AsyncStorage.setItem("reminders", JSON.stringify(updatedList));
+
+      Alert.alert("Success", "Reminder updated successfully!");
+      router.back();
+    } catch (err) {
+      alert("Update error: " + err);
+    }
   };
 
   //add or update reminder
@@ -129,20 +193,16 @@ const Index = ({
       timestamp: reminderDate.getTime(),
     };
 
-    let updatedReminders = [...reminders];
-
     if (editingId !== null) {
-      // If we are editing, update the reminder in the list
-      updatedReminders = updatedReminders.map((reminder) =>
-        reminder.id === editingId ? newReminder : reminder
-      );
+      // Call editReminder here
+      await handleEditReminder(editingId, newReminder);
     } else {
-      updatedReminders.push(newReminder);
+      const updatedReminders = [...reminders, newReminder];
+      setReminders(updatedReminders);
+      await AsyncStorage.setItem("reminders", JSON.stringify(updatedReminders));
     }
 
-    setReminders(updatedReminders);
-    await AsyncStorage.setItem("reminders", JSON.stringify(updatedReminders));
-
+    // Reset fields
     setTitle("");
     setDescription("");
     setSelectedDate("Select Date");
@@ -152,13 +212,18 @@ const Index = ({
 
   //delete reminder
   const deleteReminder = async (id) => {
-    if (typeof id !== "string") {
-      console.warn("Expected a string ID but got:", id);
-      return;
+    const idStr = String(id);
+    const reminderToDelete = reminders.find((r) => r.id === idStr);
+
+    if (reminderToDelete?.notificationId) {
+      await Notifications.cancelScheduledNotificationAsync(
+        reminderToDelete.notificationId
+      );
     }
-    const updatedReminders = reminders.filter((item) => item.id !== id);
+    const updatedReminders = reminders.filter((item) => item.id !== idStr);
     setReminders(updatedReminders);
     await AsyncStorage.setItem("reminders", JSON.stringify(updatedReminders));
+    router.back();
   };
 
   //confirm time selection
@@ -213,35 +278,30 @@ const Index = ({
             <Text>{selectedTime}</Text>
           </Pressable>
 
-          {showAdd && (
-            <Pressable style={styles.addButton} onPress={addReminder}>
-              <Text style={styles.addButtonText}>Add</Text>
-            </Pressable>
-          )}
-
-          {showdelete && (
+          {editingId ? (
             <View style={styles.row}>
-              <Pressable
-                //on click it will save updated texts/changes
-                style={styles.updateButton}
-                onPress={() => deleteReminder(selectedItem.id)}
-              >
+              <Pressable style={styles.updateButton} onPress={updateReminder}>
                 <Text style={styles.addButtonText}>Update</Text>
               </Pressable>
               <Pressable
-                //remove from list
                 style={styles.deleteButton}
                 onPress={() => {
-                  if (selectedItem) {
-                    deleteReminder(selectedItem.id);
-                  } else {
-                    Alert.alert("Error", "No item selected for deletion.");
-                  }
+                  deleteReminder(editingId);
+                  setTitle("");
+                  setDescription("");
+                  setSelectedDate("Select Date");
+                  setSelectedTime("Select Time");
+                  setEditingId(null);
+                  router.back();
                 }}
               >
                 <Text style={styles.addButtonText}>Delete</Text>
               </Pressable>
             </View>
+          ) : (
+            <Pressable style={styles.addButton} onPress={addReminder}>
+              <Text style={styles.addButtonText}>Add</Text>
+            </Pressable>
           )}
         </View>
       )}
@@ -263,7 +323,7 @@ const Index = ({
                 </Text>
 
                 <Text>
-                  🕒{item.time} {"\n"} 
+                  🕒{item.time} {"\n"}
                   🗓️ {item.date}
                 </Text>
                 <Pressable

@@ -83,10 +83,10 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  row:{
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 50
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 50,
   },
   addButtonText: {
     fontSize: 16,
@@ -123,7 +123,7 @@ export const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
   },
-  
+
   reminderItem: {
     borderWidth: 1,
     flexDirection: "row",
@@ -143,9 +143,9 @@ export const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     color: "#000",
-    fontWeight: '500'
+    fontWeight: "500",
   },
-  padbot:{
+  padbot: {
     paddingBottom: "30%",
   },
   editButton: {
@@ -157,6 +157,18 @@ export const styles = StyleSheet.create({
   editButtonText: {
     color: "#fff",
     fontWeight: "bold",
-  }
-  
+  },
+  deleteButton: {
+    backgroundColor: "#d9534f",
+    padding: 10,
+    borderRadius: 5,
+    marginLeft: 10,
+  },
+
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 10,
+  },
 });
