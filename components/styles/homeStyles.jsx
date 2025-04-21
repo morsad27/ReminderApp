@@ -6,27 +6,30 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   text: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
     padding: 10,
+    paddingLeft: "10%",
   },
   containerRow: {
     flexDirection: "row",
-    padding: 10,
-    gap: 10,
+    padding: 5,
+    gap: 50,
     justifyContent: "center",
   },
   capsule: {
-    borderRadius: 30,
-    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 25,
+    paddingVertical: 10,
+    borderWidth: 2,
     borderColor: "#06f",
-    padding: 10,
   },
   capsuleActive: {
-    borderRadius: 30,
+    borderRadius: 10,
+    paddingHorizontal: 25,
+    paddingVertical: 10,
     borderWidth: 1,
     borderColor: "#06f",
-    padding: 10,
     backgroundColor: "#06f",
   },
   capsuleText: {
@@ -38,6 +41,11 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: "#fff",
   },
+  center:{
+    alignSelf: 'center',
+    fontWeight: 'bold',
+    fontSize: 22
+  }
 });
 
 export default styles;

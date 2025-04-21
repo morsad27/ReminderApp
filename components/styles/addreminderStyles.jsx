@@ -51,6 +51,7 @@ export const styles = StyleSheet.create({
     marginRight: 10,
   },
   inputField: {
+    borderWidth: 1,
     flex: 1,
     fontSize: 16,
     color: "#333",
@@ -63,6 +64,29 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
+  },
+  deleteButton: {
+    flex: 1,
+    backgroundColor: "red",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  updateButton: {
+    flex: 1,
+    backgroundColor: "green",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  row:{
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 50
   },
   addButtonText: {
     fontSize: 16,
@@ -86,7 +110,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10,
     alignItems: "center",
-    width: "90%",
+    width: "95%",
   },
   closeButton: {
     marginTop: 10,
@@ -101,6 +125,7 @@ export const styles = StyleSheet.create({
   },
   
   reminderItem: {
+    borderWidth: 1,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -108,6 +133,7 @@ export const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 8,
     marginVertical: 5,
+    marginHorizontal: 10,
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.5,
     shadowRadius: 5,
@@ -117,5 +143,20 @@ export const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     color: "#000",
+    fontWeight: '500'
   },
+  padbot:{
+    paddingBottom: "30%",
+  },
+  editButton: {
+    padding: 0,
+    // backgroundColor: "#2196F3",
+    // borderRadius: 6,
+    marginRight: -20,
+  },
+  editButtonText: {
+    color: "#fff",
+    fontWeight: "bold",
+  }
+  
 });

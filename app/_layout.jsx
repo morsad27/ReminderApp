@@ -29,7 +29,6 @@ export default function RootLayout() {
 
   return (
     <>
-      {/* 👇 Set status bar color and style */}
       <StatusBar style="light" backgroundColor="#06f" />
 
       <Stack>
@@ -40,6 +39,21 @@ export default function RootLayout() {
           options={{
             headerShown: true,
             title: "Add New Reminder",
+            headerStyle: {
+              backgroundColor: "#06f",
+              borderBottomRightRadius: 30,
+              borderBottomLeftRadius: 30,
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
+          }}
+        />
+
+        <Stack.Screen
+          name="edit-reminder/index"
+          options={{
+            headerShown: true,
+            title: "Edit reminder",
             headerStyle: {
               backgroundColor: "#06f",
               borderBottomRightRadius: 30,
