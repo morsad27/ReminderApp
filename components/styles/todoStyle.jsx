@@ -29,16 +29,20 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: "#fff",
     color: "#333",
-    borderRadius: 10,
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
+    // borderRadius: 10,
   },
-  inputEdit: {
-    minHeight: 35,
-    borderColor: "#000",
-    fontSize: 16,
-    backgroundColor: "#06f",
-    color: "#fff",
-    margin: -10,
-  },
+  
+  // inputEdit: {
+  //   minHeight: 35,
+  //   borderColor: "#06f",
+  //   marginLeft: 0,
+  //   fontSize: 16,
+  //   backgroundColor: "#fff",
+  //   color: "#06f",
+  //   margin: -10,
+  // },
   addButton: {
     backgroundColor: "#06f",
     borderTopRightRadius: 20,
@@ -80,4 +84,38 @@ export const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
   },
+
+  
+
+
+
+  // ....
+
+
+  editingItem: {
+    backgroundColor: "#f0f0f0",
+    borderRadius: 10,
+    padding: 10,
+    marginVertical: 5,
+  },
+  
+  inputEdit: {
+    flex: 1,
+    padding: 10,
+    fontSize: 16,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    marginRight: 10,
+    backgroundColor: "white",
+  },
+  
+  saveButton: {
+    padding: 8,
+    backgroundColor: "#4CAF50",
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  
 });

@@ -229,7 +229,7 @@ const Index = ({
     const updatedReminders = reminders.filter((item) => item.id !== idStr);
     setReminders(updatedReminders);
     await AsyncStorage.setItem("reminders", JSON.stringify(updatedReminders));
-    router.push("/");
+    router.push("/home");
   };
 
   //confirm time selection
