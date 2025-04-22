@@ -154,7 +154,7 @@ const Todo = ({ showAddButton = true }) => {
             </View>
           )}
           keyExtractor={(item) => item.id.toString()}
-          contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
+          contentContainerStyle={{ flexGrow: 1, paddingBottom: 100, paddingTop: 10 }}
         />
     </SafeAreaView>
   );
