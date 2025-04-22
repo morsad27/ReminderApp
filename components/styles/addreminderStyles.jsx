@@ -145,9 +145,6 @@ export const styles = StyleSheet.create({
     color: "#000",
     fontWeight: "500",
   },
-  padbot: {
-    paddingBottom: "30%",
-  },
   editButton: {
     padding: 0,
     // backgroundColor: "#2196F3",

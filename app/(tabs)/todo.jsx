@@ -85,7 +85,7 @@ const Todo = ({ showAddButton = true }) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, { paddingTop: -35 }]}>
       {showAddButton && (
         <View style={styles.inputContainer}>
           <TextInput
@@ -101,60 +101,61 @@ const Todo = ({ showAddButton = true }) => {
         </View>
       )}
 
-      <FlatList
-        data={todoList}
-        renderItem={({ item }) => (
-          <View style={styles.todoItem}>
-            {item.id === editingId ? (
-              <TextInput
-                style={styles.input}
-                value={editingText}
-                onChangeText={(text) => setEditingText(text)}
-                onBlur={() => {
-                  editTodo(item.id, editingText);
-                  setEditingId(null);
-                }}
-              />
-            ) : (
-              <View style={styles.row}>
-                <Pressable onPress={() => toggleTodo(item.id)}>
-                  <Image
-                    source={
-                      item.completed
-                      ? require("../../assets/images/circle-checked.png")
-                      : require("../../assets/images/circle.png")}
-                    style={styles.icon}
-                    onPress={() => toggleTodo(item.id)}
-                  />
-                </Pressable>
-
-                <Text
-                  style={[
-                    styles.todoText,
-                    item.completed && styles.completedText,
-                  ]}
-                  // onPress={() => toggleTodo(item.id)}
-                  onPress={() => {
-                    setEditingId(item.id);
-                    setEditingText(item.text);
+        <FlatList
+          data={todoList}
+          renderItem={({ item }) => (
+            <View style={styles.todoItem}>
+              {item.id === editingId ? (
+                <TextInput
+                  style={styles.input}
+                  value={editingText}
+                  onChangeText={(text) => setEditingText(text)}
+                  onBlur={() => {
+                    editTodo(item.id, editingText);
+                    setEditingId(null);
                   }}
-                >
-                  {item.text}
-                </Text>
-              </View>
-            )}
+                />
+              ) : (
+                <View style={styles.row}>
+                  <Pressable onPress={() => toggleTodo(item.id)}>
+                    <Image
+                      source={
+                        item.completed
+                          ? require("../../assets/images/circle-checked.png")
+                          : require("../../assets/images/circle.png")
+                      }
+                      style={styles.checkicon}
+                      onPress={() => toggleTodo(item.id)}
+                    />
+                  </Pressable>
 
-            <Pressable onPress={() => removeTodo(item.id)}>
-              <Image
-                source={require("../../assets/images/removeicon.png")}
-                style={styles.icon}
-              />
-            </Pressable>
-          </View>
-        )}
-        keyExtractor={(item) => item.id.toString()}
-        contentContainerStyle={{ flexGrow: 1 }}
-      />
+                  <Text
+                    style={[
+                      styles.todoText,
+                      item.completed && styles.completedText,
+                    ]}
+                    // onPress={() => toggleTodo(item.id)}
+                    onPress={() => {
+                      setEditingId(item.id);
+                      setEditingText(item.text);
+                    }}
+                  >
+                    {item.text}
+                  </Text>
+                </View>
+              )}
+
+              <Pressable onPress={() => removeTodo(item.id)}>
+                <Image
+                  source={require("../../assets/images/removeicon.png")}
+                  style={styles.icon}
+                />
+              </Pressable>
+            </View>
+          )}
+          keyExtractor={(item) => item.id.toString()}
+          contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
+        />
     </SafeAreaView>
   );
 };
