@@ -6,6 +6,11 @@ export const styles = StyleSheet.create({
     width: 24,
     marginLeft: -20,
   },
+  checkicon: {
+    height: 20,
+    width: 20,
+    marginLeft: 0,
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -71,8 +76,8 @@ export const styles = StyleSheet.create({
     textDecorationLine: "line-through",
     color: "#A9A9A9",
   },
-  row:{
-    display: 'flex',
-    flexDirection: 'row',
-  }
+  row: {
+    display: "flex",
+    flexDirection: "row",
+  },
 });
