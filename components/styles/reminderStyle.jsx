@@ -4,14 +4,14 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    padding: 5,
   },
   addButton: {
+    marginTop: 20,
     display: 'flex',
     alignItems: "center",
-    margin: 20,
+    marginHorizontal: 10,
     backgroundColor: "#06f",
-    borderTopRightRadius: 20,
+    borderTopRightRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 20,
     justifyContent: "center",

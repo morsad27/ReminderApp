@@ -12,7 +12,7 @@ const reminder = ({ showAddReminder = true }) => {
           <Text style={styles.addButtonText}> Add new Reminder </Text>
         </Link>
       )}
-      <Reminders showAddReminder={false} showlist={true} showdelete={false}/>
+      <Reminders style={{flex: 1}} showAddReminder={false} showlist={true} showdelete={false}/>
     </SafeAreaView>
   );
 };

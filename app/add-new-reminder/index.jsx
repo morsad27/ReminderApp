@@ -317,9 +317,9 @@ const Index = ({
       )}
 
       {showlist && (
-        <View style={styles.padbot}>
           <FlatList
             data={reminders}
+            contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
             renderItem={({ item }) => (
               <View style={styles.reminderItem}>
                 <Text
@@ -351,7 +351,6 @@ const Index = ({
               </View>
             )}
           />
-        </View>
       )}
 
       <Modal visible={isCalendarVisible} transparent animationType="fade">
