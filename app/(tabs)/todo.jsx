@@ -85,7 +85,7 @@ const Todo = ({ showAddButton = true }) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, {paddingTop: -35}]}>
       {showAddButton && (
         <View style={styles.inputContainer}>
           <TextInput

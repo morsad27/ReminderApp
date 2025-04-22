@@ -81,8 +81,8 @@ const TabsLayout = () => {
                 title: "Reminders",
                 headerStyle: {
                   backgroundColor: "#06f",
-                  borderBottomRightRadius: 30,
-                  borderBottomLeftRadius: 30,
+                  // borderBottomRightRadius: 30,
+                  // borderBottomLeftRadius: 30,
                 },
                 headerTintColor: "#fff",
                 headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
@@ -95,8 +95,8 @@ const TabsLayout = () => {
                 title: "To-Dos",
                 headerStyle: {
                   backgroundColor: "#06f",
-                  borderBottomRightRadius: 30,
-                  borderBottomLeftRadius: 30,
+                  // borderBottomRightRadius: 30,
+                  // borderBottomLeftRadius: 30,
                 },
                 headerTintColor: "#fff",
                 headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
