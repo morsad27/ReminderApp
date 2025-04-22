@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     paddingHorizontal: 10,
-    paddingVertical: 15,
+    paddingTop: 10,
   },
   input: {
     minHeight: 55,

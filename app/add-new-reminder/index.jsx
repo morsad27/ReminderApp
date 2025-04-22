@@ -22,8 +22,6 @@ import { useLocalSearchParams } from "expo-router";
 const Index = ({
   showAddReminder = true,
   showlist = false,
-  showdelete = false,
-  showAdd = true,
   editReminder,
 }) => {
   const router = useRouter();
@@ -319,7 +317,7 @@ const Index = ({
       {showlist && (
           <FlatList
             data={reminders}
-            contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
+            contentContainerStyle={{ flexGrow: 1, paddingBottom: 100, paddingTop: 10 }}
             renderItem={({ item }) => (
               <View style={styles.reminderItem}>
                 <Text
