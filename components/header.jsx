@@ -57,7 +57,7 @@ const Header = () => {
         </View>
       </View>
       <Text style={styles.bottomText}>
-        Never mind, I'll find someone like you.
+        Lorem ipsum is a dummy text
       </Text>
     </View>
   );

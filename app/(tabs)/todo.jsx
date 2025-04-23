@@ -101,13 +101,22 @@ const Todo = ({ showAddButton = true }) => {
         </View>
       )}
 
-        <FlatList
-          data={todoList}
-          renderItem={({ item }) => (
-            <View style={styles.todoItem}>
-              {item.id === editingId ? (
+      <FlatList
+        data={todoList}
+        renderItem={({ item }) => (
+          <View style={styles.todoItem}>
+            {item.id === editingId ? (
+              <View style={styles.row}>
+                <Image
+                  source={
+                    item.completed
+                      ? require("../../assets/images/circle-checked.png")
+                      : require("../../assets/images/circle.png")
+                  }
+                  style={styles.checkicon}
+                />
                 <TextInput
-                  style={styles.input}
+                  style={styles.inputEdit}
                   value={editingText}
                   onChangeText={(text) => setEditingText(text)}
                   onBlur={() => {
@@ -115,47 +124,52 @@ const Todo = ({ showAddButton = true }) => {
                     setEditingId(null);
                   }}
                 />
-              ) : (
-                <View style={styles.row}>
-                  <Pressable onPress={() => toggleTodo(item.id)}>
-                    <Image
-                      source={
-                        item.completed
-                          ? require("../../assets/images/circle-checked.png")
-                          : require("../../assets/images/circle.png")
-                      }
-                      style={styles.checkicon}
-                      onPress={() => toggleTodo(item.id)}
-                    />
-                  </Pressable>
+              </View>
+            ) : (
+              <View style={styles.row}>
+                <Pressable onPress={() => toggleTodo(item.id)}>
+                  <Image
+                    source={
+                      item.completed
+                        ? require("../../assets/images/circle-checked.png")
+                        : require("../../assets/images/circle.png")
+                    }
+                    style={styles.checkicon}
+                    onPress={() => toggleTodo(item.id)}
+                  />
+                </Pressable>
 
-                  <Text
-                    style={[
-                      styles.todoText,
-                      item.completed && styles.completedText,
-                    ]}
-                    // onPress={() => toggleTodo(item.id)}
-                    onPress={() => {
-                      setEditingId(item.id);
-                      setEditingText(item.text);
-                    }}
-                  >
-                    {item.text}
-                  </Text>
-                </View>
-              )}
+                <Text
+                  style={[
+                    styles.todoText,
+                    item.completed && styles.completedText,
+                  ]}
+                  // onPress={() => toggleTodo(item.id)}
+                  onPress={() => {
+                    setEditingId(item.id);
+                    setEditingText(item.text);
+                  }}
+                >
+                  {item.text}
+                </Text>
+              </View>
+            )}
 
-              <Pressable onPress={() => removeTodo(item.id)}>
-                <Image
-                  source={require("../../assets/images/removeicon.png")}
-                  style={styles.icon}
-                />
-              </Pressable>
-            </View>
-          )}
-          keyExtractor={(item) => item.id.toString()}
-          contentContainerStyle={{ flexGrow: 1, paddingBottom: 100, paddingTop: 10 }}
-        />
+            <Pressable onPress={() => removeTodo(item.id)}>
+              <Image
+                source={require("../../assets/images/removeicon.png")}
+                style={styles.icon}
+              />
+            </Pressable>
+          </View>
+        )}
+        keyExtractor={(item) => item.id.toString()}
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingBottom: 100,
+          paddingTop: 10,
+        }}
+      />
     </SafeAreaView>
   );
 };
