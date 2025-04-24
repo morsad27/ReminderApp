@@ -20,7 +20,7 @@
     "expo-linking": "~7.0.5",
     "expo-notifications": "~0.29.14",
     "expo-router": "~4.0.20",
-    "expo-splash-screen": "^0.29.24",
+    "expo-h-screen": "^0.29.24",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
     "react-native": "0.76.9",
@@ -35,7 +35,6 @@
     "@types/react": "~18.3.12",
     "jest": "^29.2.1",
     "jest-expo": "~52.0.6"
-
   },
   "private": true
 }
