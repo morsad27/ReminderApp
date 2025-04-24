@@ -2,7 +2,6 @@ import { Stack } from "expo-router";
 import * as Notifications from "expo-notifications";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import { TodoContext } from "../constant/todoContext";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
