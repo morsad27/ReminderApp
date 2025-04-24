@@ -1,12 +1,11 @@
 import { Text, View } from "react-native";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./styles/headerStyles";
-import { ReminderContext } from "../constant/reminderContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useFocusEffect } from "@react-navigation/native"; // Import focus effect
+import { useFocusEffect } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
 
 const Header = () => {
-  const { reminderList } = useContext(ReminderContext);
   const [reminders, setReminders] = useState([]);
   const [todoList, setTodoList] = useState([]);
 
@@ -44,21 +43,22 @@ const Header = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.logoText}>Re:Mind</Text>
+      <View style={styles.row}>
+        <Ionicons name="notifications" size={30} color="white" />
+        <Text style={styles.logoText}>Re:Mind</Text>
+      </View>
       <View style={styles.circleRow}>
         <View style={styles.circle}>
           <Text style={styles.text}>{reminders.length}</Text>
-          <Text style={styles.textTitle}>Reminds</Text>
+          <Text style={styles.textTitle}>Reminders</Text>
         </View>
 
         <View style={styles.circle}>
           <Text style={styles.text}>{todoList.length}</Text>
-          <Text style={styles.textTitle}>To-Do</Text>
+          <Text style={styles.textTitle}>To-Dos</Text>
         </View>
       </View>
-      <Text style={styles.bottomText}>
-        Lorem ipsum is a dummy text
-      </Text>
+      <Text style={styles.bottomText}>Lorem ipsum is a dummy text</Text>
     </View>
   );
 };

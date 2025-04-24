@@ -140,6 +140,7 @@ export const styles = StyleSheet.create({
     shadowColor: "#000",
   },
   reminderTitle: {
+    paddingRight: 10,
     flex: 1,
     fontSize: 16,
     color: "#000",
@@ -147,8 +148,6 @@ export const styles = StyleSheet.create({
   },
   editButton: {
     padding: 0,
-    // backgroundColor: "#2196F3",
-    // borderRadius: 6,
     marginRight: -20,
   },
   editButtonText: {

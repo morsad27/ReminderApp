@@ -16,14 +16,9 @@ import { TimePickerModal } from "react-native-paper-dates";
 import * as Notifications from "expo-notifications";
 import { styles } from "../../components/styles/addreminderStyles";
 import { useFocusEffect } from "@react-navigation/native";
-import { useRouter } from "expo-router";
-import { useLocalSearchParams } from "expo-router";
+import { useRouter, useLocalSearchParams } from "expo-router";
 
-const Index = ({
-  showAddReminder = true,
-  showlist = false,
-  editReminder,
-}) => {
+const Index = ({ showAddReminder = true, showlist = false, editReminder }) => {
   const router = useRouter();
   const params = useLocalSearchParams();
 
@@ -90,7 +85,7 @@ const Index = ({
   const scheduleExpoNotification = async (title, scheduledDate) => {
     const notificationId = await Notifications.scheduleNotificationAsync({
       content: {
-        title: `Reminder: ${title}`,
+        title: title,
         body: description,
       },
       trigger: scheduledDate,
@@ -189,7 +184,7 @@ const Index = ({
       date: selectedDate,
       time: selectedTime,
       timestamp: reminderDate.getTime(),
-      notificationId, // <-- attach here
+      notificationId,
     };
 
     if (editingId !== null) {
@@ -206,6 +201,9 @@ const Index = ({
     setSelectedDate("Select Date");
     setSelectedTime("Select Time");
     setEditingId(null);
+
+    Alert.alert("Added successfully");
+    router.push("/home");
   };
 
   //delete reminder
@@ -300,7 +298,6 @@ const Index = ({
                   setEditingId(null);
 
                   Alert.alert("Success", "Reminder deleted successfully!");
-                  router.back();
                 }}
               >
                 <Text style={styles.addButtonText}>Delete</Text>
@@ -315,40 +312,49 @@ const Index = ({
       )}
 
       {showlist && (
-          <FlatList
-            data={reminders}
-            contentContainerStyle={{ flexGrow: 1, paddingBottom: 100, paddingTop: 10 }}
-            renderItem={({ item }) => (
-              <View style={styles.reminderItem}>
-                <Text
-                  style={styles.reminderTitle}
-                  onPress={() => {
-                    setEditingId(item.id);
-                    setSelectedItem(item);
-                  }}
-                >
-                  {item.title}
-                </Text>
+        <FlatList
+          data={reminders}
+          contentContainerStyle={{
+            flexGrow: 1,
+            paddingBottom: 100,
+            paddingTop: 10,
+          }}
+          renderItem={({ item }) => (
+            <View style={styles.reminderItem}>
+              <Text
+                style={styles.reminderTitle}
+                onPress={() => {
+                  setEditingId(item.id);
+                  setSelectedItem(item);
+                }}
+              >
+                {item.title}
+              </Text>
 
-                <Text>
-                  🕒{item.time} {"\n"}
-                  🗓️ {item.date}
-                </Text>
-                <Pressable
-                  style={styles.editButton}
-                  onPress={() => {
-                    const params = encodeURIComponent(JSON.stringify(item));
-                    router.push(`/edit-reminder?editReminder=${params}`);
-                  }}
-                >
-                  <Image
-                    source={require("../../assets/images/arrow.png")}
-                    style={styles.icon}
-                  />
-                </Pressable>
-              </View>
-            )}
-          />
+              <Text style={{ paddingRight: 10 }}>
+                🕒{item.time} {"\n"}
+                🗓️ {item.date}
+              </Text>
+              <Pressable
+                style={styles.editButton}
+                onPress={() => {
+                  const params = encodeURIComponent(JSON.stringify(item));
+                  router.push(`/edit-reminder?editReminder=${params}`);
+                }}
+                // for modal
+                // onPress={() => {
+                //   const params = encodeURIComponent(JSON.stringify(item));
+                //   router.push(`/(modals)/edit-reminder?editReminder=${params}`);
+                // }}
+              >
+                <Image
+                  source={require("../../assets/images/arrow.png")}
+                  style={styles.icon}
+                />
+              </Pressable>
+            </View>
+          )}
+        />
       )}
 
       <Modal visible={isCalendarVisible} transparent animationType="fade">

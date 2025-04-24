@@ -3,8 +3,6 @@ import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import Header from "../../components/header";
 import QuickView from "../../components/quickview";
 import styles from "../../components/styles/homeStyles";
-import { TodoProvider } from "../../constant/todoContext";
-import { ReminderProvider } from "../../constant/reminderContext";
 
 const Home = () => {
   const [selectedCapsule, setSelectedCapsule] = useState("Reminders");

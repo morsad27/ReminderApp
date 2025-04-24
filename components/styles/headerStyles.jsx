@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   textTitle: {
-    fontSize: isNokia ? 24 : isTablet ? 28 : 26,
+    fontSize: isNokia ? 20 : isTablet ? 24 : 22,
     alignSelf: "center",
     fontWeight: "500",
     color: "#fff",

@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import * as Notifications from "expo-notifications";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
+import { TodoContext } from "../constant/todoContext";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -61,6 +62,37 @@ export default function RootLayout() {
             },
             headerTintColor: "#fff",
             headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
+          }}
+        />
+        <Stack.Screen
+          name="edit-todo/index"
+          options={{
+            headerShown: true,
+            title: "Edit todo",
+            headerStyle: {
+              backgroundColor: "#06f",
+              borderBottomRightRadius: 30,
+              borderBottomLeftRadius: 30,
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
+          }}
+        />
+        <Stack.Screen
+          name="(modals)/edit-todo"
+          options={{
+            presentation: "transparentModal",
+            animation: "fade",
+            headerShown: false,
+          }}
+        />
+        
+        <Stack.Screen
+          name="(modals)/edit-reminder"
+          options={{
+            presentation: "transparentModal",
+            animation: "fade",
+            headerShown: false,
           }}
         />
       </Stack>

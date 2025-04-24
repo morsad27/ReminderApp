@@ -10,8 +10,13 @@ import React, { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "../../components/styles/todoStyle";
+import { useFocusEffect } from "@react-navigation/native";
+import { useLocalSearchParams, useRouter } from "expo-router";
 
 const Todo = ({ showAddButton = true }) => {
+  const router = useRouter();
+  const params = useLocalSearchParams();
+
   const [todoList, setTodoList] = useState([]);
   const [todoText, setTodoText] = useState("");
   const [editingId, setEditingId] = useState(null);
@@ -44,6 +49,13 @@ const Todo = ({ showAddButton = true }) => {
       alert("Error removing to-do: " + err);
     }
   };
+
+  // reload data when focus xd
+  useFocusEffect(
+    React.useCallback(() => {
+      loadTodoList();
+    }, [])
+  );
 
   const loadTodoList = async () => {
     try {
@@ -155,9 +167,21 @@ const Todo = ({ showAddButton = true }) => {
               </View>
             )}
 
-            <Pressable onPress={() => removeTodo(item.id)}>
+            {/* <Pressable onPress={() => removeTodo(item.id)}>
               <Image
                 source={require("../../assets/images/removeicon.png")}
+                style={styles.icon}
+              />
+            </Pressable> */}
+            <Pressable
+              style={styles.editButton}
+              onPress={() => {
+                const params = encodeURIComponent(JSON.stringify(item));
+                router.push(`/(modals)/edit-todo?editTodo=${params}`);
+              }}
+            >
+              <Image
+                source={require("../../assets/images/burger.png")}
                 style={styles.icon}
               />
             </Pressable>
