@@ -1,4 +1,4 @@
-import { Dimensions, Image, SafeAreaView, Text, View } from "react-native";
+import { Image, SafeAreaView, Text, View } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
 import { styles } from "../../components/styles/reminderStyle";
