@@ -85,13 +85,41 @@ export const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
   },
-
+  deleteButton: {
+    marginTop: 10,
+    backgroundColor: "#FF3B30",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    alignItems: "center",
+  },
+  deleteButtonText: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
   
 
-
-
-  // ....
-
+  label: {
+    fontSize: 18,
+    fontWeight: "600",
+    marginBottom: 10,
+    color: "#333",
+  },
+  saveButton: {
+    marginTop: 20,
+    backgroundColor: "#007AFF",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    alignItems: "center",
+  },
+  saveButtonText: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  
 
   editingItem: {
     backgroundColor: "#f0f0f0",

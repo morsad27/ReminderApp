@@ -16,8 +16,7 @@ import { TimePickerModal } from "react-native-paper-dates";
 import * as Notifications from "expo-notifications";
 import { styles } from "../../components/styles/addreminderStyles";
 import { useFocusEffect } from "@react-navigation/native";
-import { useRouter } from "expo-router";
-import { useLocalSearchParams } from "expo-router";
+import { useRouter, useLocalSearchParams } from "expo-router";
 
 const Index = ({
   showAddReminder = true,
