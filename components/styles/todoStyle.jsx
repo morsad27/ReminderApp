@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   checkicon: {
     height: 20,
     width: 20,
-    marginLeft: 0,
+    marginLeft: -10,
   },
   container: {
     flex: 1,
@@ -75,6 +75,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     color: "#000",
+    paddingLeft: 8,
   },
   completedText: {
     textDecorationLine: "line-through",
