@@ -156,7 +156,7 @@ const Index = ({
       await AsyncStorage.setItem("reminders", JSON.stringify(updatedList));
 
       Alert.alert("Success", "Reminder updated successfully!");
-      router.back();
+      router.push("/home");
     } catch (err) {
       alert("Update error: " + err);
     }
