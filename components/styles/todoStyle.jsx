@@ -102,12 +102,12 @@ export const styles = StyleSheet.create({
   
   inputEdit: {
     flex: 1,
-    padding: 10,
+    padding: 5,
+    marginVertical: -3,
     fontSize: 16,
     borderWidth: 1,
     borderColor: "#ccc",
-    borderRadius: 8,
-    marginRight: 10,
+    marginRight: 20,
     backgroundColor: "white",
   },
   
