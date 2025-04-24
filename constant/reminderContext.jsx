@@ -33,7 +33,7 @@ export const ReminderProvider = ({ children }) => {
     if (reminderText.trim()) {
       const newReminder = { id: Date.now(), text: reminderText.trim() };
       const updatedList = [...reminderList, newReminder];
-      setReminderList(updatedList); // Fixed the issue here
+      setReminderList(updatedList); 
       await saveReminderList(updatedList);
     }
   };

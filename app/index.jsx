@@ -3,12 +3,12 @@ import {
   Text,
   StyleSheet,
   Animated,
-  ImageBackground,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useRef } from "react";
 import { useRouter } from "expo-router";
 import * as Notifications from "expo-notifications";
+import { styles } from "../components/styles/indexStyles";
 
 export default function SplashScreen() {
   useEffect(() => {
@@ -75,28 +75,3 @@ export default function SplashScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#06f",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  welcomeImage: {
-    flex: 1,
-    width: "100%",
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  iconContainer: {
-    alignItems: "center",
-  },
-  appName: {
-    color: "white",
-    fontSize: 32,
-    fontWeight: "bold",
-    marginTop: 20,
-    letterSpacing: 1,
-  },
-});

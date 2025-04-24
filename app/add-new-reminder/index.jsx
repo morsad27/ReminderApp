@@ -16,11 +16,10 @@ import { TimePickerModal } from "react-native-paper-dates";
 import * as Notifications from "expo-notifications";
 import { styles } from "../../components/styles/addreminderStyles";
 import { useFocusEffect } from "@react-navigation/native";
-import { useRouter, useLocalSearchParams } from "expo-router";
+import { useRouter } from "expo-router";
 
 const Index = ({ showAddReminder = true, showlist = false, editReminder }) => {
   const router = useRouter();
-  const params = useLocalSearchParams();
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -341,11 +340,6 @@ const Index = ({ showAddReminder = true, showlist = false, editReminder }) => {
                   const params = encodeURIComponent(JSON.stringify(item));
                   router.push(`/edit-reminder?editReminder=${params}`);
                 }}
-                // for modal
-                // onPress={() => {
-                //   const params = encodeURIComponent(JSON.stringify(item));
-                //   router.push(`/(modals)/edit-reminder?editReminder=${params}`);
-                // }}
               >
                 <Image
                   source={require("../../assets/images/arrow.png")}
