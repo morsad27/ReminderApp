@@ -5,11 +5,13 @@ import {
   View,
   Pressable,
   Alert,
+  Image,
 } from "react-native";
 import React, { useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { styles } from "../../components/styles/todoStyle";
+import Todo from "../(tabs)/todo";
 
 const EditTodo = () => {
   const { editTodo } = useLocalSearchParams();
@@ -52,7 +54,7 @@ const EditTodo = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput
-          style={styles.input}
+          style={styles.editInput}
           value={text}
           onChangeText={setText}
           placeholder="Update your task..."
@@ -60,19 +62,28 @@ const EditTodo = () => {
         />
 
         <Pressable style={styles.saveButton} onPress={updateTodo}>
-          <Text style={styles.saveButtonText}>Save</Text>
+          <Image
+            source={require("../../assets/images/circle-checked.png")}
+            style={styles.saveicon}
+          />
         </Pressable>
+      </View>
 
+      <View>
         <Pressable
           style={styles.deleteButton}
           onPress={() =>
-            Alert.alert("Confirm Delete", "Are you sure you want to delete this to-do?", [
-              { text: "Cancel", style: "cancel" },
-              { text: "Delete", style: "destructive", onPress: deleteTodo },
-            ])
+            Alert.alert(
+              "Confirm Delete",
+              "Are you sure you want to delete this to-do?",
+              [
+                { text: "Cancel", style: "cancel" },
+                { text: "Delete", style: "destructive", onPress: deleteTodo },
+              ]
+            )
           }
         >
-          <Text style={styles.deleteButtonText}>Delete</Text>
+          <Text style={styles.deleteButtonText}>delete</Text>
         </Pressable>
       </View>
     </SafeAreaView>

@@ -25,13 +25,26 @@ export const styles = StyleSheet.create({
     flex: 1,
     borderWidth: 1,
     borderColor: "#000",
-    paddingHorizontal: 20,
+    paddingLeft: 20,
     fontSize: 16,
     backgroundColor: "#fff",
     color: "#333",
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
     // borderRadius: 10,
+  },
+  editInput: {
+    minHeight: 55,
+    flex: 1,
+    borderWidth: 1,
+    borderColor: "#000",
+    // paddingLeft: 20,
+    fontSize: 16,
+    backgroundColor: "#fff",
+    color: "#333",
+    // borderTopLeftRadius: 10,
+    // borderBottomLeftRadius: 10,
+    borderRadius: 10,
   },
   
   // inputEdit: {
@@ -86,15 +99,17 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
   },
   deleteButton: {
-    marginTop: 10,
-    backgroundColor: "#FF3B30",
+    marginTop: 2,
+    backgroundColor: "#fff",
     paddingVertical: 12,
     paddingHorizontal: 20,
-    borderRadius: 8,
     alignItems: "center",
+    borderWidth: 1,
+    borderBlockColor: "#FF3B30",
+    marginHorizontal: 10
   },
   deleteButtonText: {
-    color: "#fff",
+    color: "#FF3B30",
     fontWeight: "bold",
     fontSize: 16,
   },
@@ -107,12 +122,16 @@ export const styles = StyleSheet.create({
     color: "#333",
   },
   saveButton: {
-    marginTop: 20,
-    backgroundColor: "#007AFF",
-    paddingVertical: 12,
-    paddingHorizontal: 20,
+    // marginTop: 20,
+    backgroundColor: "#fff",
+    paddingVertical: 2,
+    paddingHorizontal: 1,
     borderRadius: 8,
     alignItems: "center",
+  },
+  saveicon:{
+    height: 50,
+    width: 50,
   },
   saveButtonText: {
     color: "#fff",
@@ -139,12 +158,5 @@ export const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   
-  saveButton: {
-    padding: 8,
-    backgroundColor: "#4CAF50",
-    borderRadius: 8,
-    justifyContent: "center",
-    alignItems: "center",
-  },
   
 });

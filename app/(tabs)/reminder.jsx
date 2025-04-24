@@ -1,4 +1,4 @@
-import { Dimensions, SafeAreaView, Text, View } from "react-native";
+import { Dimensions, Image, SafeAreaView, Text, View } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
 import { styles } from "../../components/styles/reminderStyle";
@@ -9,10 +9,21 @@ const reminder = ({ showAddReminder = true }) => {
     <SafeAreaView style={styles.container}>
       {showAddReminder && (
         <Link href="../add-new-reminder" style={styles.addButton}>
-          <Text style={styles.addButtonText}> Add new Reminder </Text>
+          <View style={styles.addContent}>
+            <Image
+              source={require("../../assets/images/add.png")}
+              style={styles.icon}
+            />
+            <Text style={styles.addButtonText}>Add reminder</Text>
+          </View>
         </Link>
       )}
-      <Reminders style={{flex: 1}} showAddReminder={false} showlist={true} showdelete={false}/>
+      <Reminders
+        style={{ flex: 1 }}
+        showAddReminder={false}
+        showlist={true}
+        showdelete={false}
+      />
     </SafeAreaView>
   );
 };

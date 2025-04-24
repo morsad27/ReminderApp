@@ -78,6 +78,23 @@ export default function RootLayout() {
             headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
           }}
         />
+        <Stack.Screen
+          name="(modals)/edit-todo"
+          options={{
+            presentation: "transparentModal",
+            animation: "fade",
+            headerShown: false,
+          }}
+        />
+        
+        <Stack.Screen
+          name="(modals)/edit-reminder"
+          options={{
+            presentation: "transparentModal",
+            animation: "fade",
+            headerShown: false,
+          }}
+        />
       </Stack>
     </>
   );

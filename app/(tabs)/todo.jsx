@@ -177,11 +177,11 @@ const Todo = ({ showAddButton = true }) => {
               style={styles.editButton}
               onPress={() => {
                 const params = encodeURIComponent(JSON.stringify(item));
-                router.push(`/edit-todo?editTodo=${params}`);
+                router.push(`/(modals)/edit-todo?editTodo=${params}`);
               }}
             >
               <Image
-                source={require("../../assets/images/editicon.png")}
+                source={require("../../assets/images/burger.png")}
                 style={styles.icon}
               />
             </Pressable>
