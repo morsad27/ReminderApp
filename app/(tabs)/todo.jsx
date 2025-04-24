@@ -11,11 +11,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "../../components/styles/todoStyle";
 import { useFocusEffect } from "@react-navigation/native";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 
 const Todo = ({ showAddButton = true }) => {
   const router = useRouter();
-  const params = useLocalSearchParams();
 
   const [todoList, setTodoList] = useState([]);
   const [todoText, setTodoText] = useState("");
@@ -156,23 +155,11 @@ const Todo = ({ showAddButton = true }) => {
                     styles.todoText,
                     item.completed && styles.completedText,
                   ]}
-                  // onPress={() => toggleTodo(item.id)}
-                  onPress={() => {
-                    setEditingId(item.id);
-                    setEditingText(item.text);
-                  }}
                 >
                   {item.text}
                 </Text>
               </View>
             )}
-
-            {/* <Pressable onPress={() => removeTodo(item.id)}>
-              <Image
-                source={require("../../assets/images/removeicon.png")}
-                style={styles.icon}
-              />
-            </Pressable> */}
             <Pressable
               style={styles.editButton}
               onPress={() => {
