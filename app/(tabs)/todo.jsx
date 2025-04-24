@@ -39,16 +39,6 @@ const Todo = ({ showAddButton = true }) => {
     }
   };
 
-  const removeTodo = async (id) => {
-    try {
-      const updatedList = todoList.filter((item) => item.id !== id);
-      setTodoList(updatedList);
-      await saveTodoList(updatedList);
-    } catch (err) {
-      alert("Error removing to-do: " + err);
-    }
-  };
-
   // reload data when focus xd
   useFocusEffect(
     React.useCallback(() => {
