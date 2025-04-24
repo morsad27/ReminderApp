@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import * as Notifications from "expo-notifications";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
+import { TodoContext } from "../constant/todoContext";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -29,41 +30,41 @@ export default function RootLayout() {
 
   return (
     <>
-      <StatusBar style="light" backgroundColor="#06f" />
+        <StatusBar style="light" backgroundColor="#06f" />
 
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="add-new-reminder/index"
-          options={{
-            headerShown: true,
-            title: "Add New Reminder",
-            headerStyle: {
-              backgroundColor: "#06f",
-              borderBottomRightRadius: 30,
-              borderBottomLeftRadius: 30,
-            },
-            headerTintColor: "#fff",
-            headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
-          }}
-        />
+        <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="add-new-reminder/index"
+            options={{
+              headerShown: true,
+              title: "Add New Reminder",
+              headerStyle: {
+                backgroundColor: "#06f",
+                borderBottomRightRadius: 30,
+                borderBottomLeftRadius: 30,
+              },
+              headerTintColor: "#fff",
+              headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
+            }}
+          />
 
-        <Stack.Screen
-          name="edit-reminder/index"
-          options={{
-            headerShown: true,
-            title: "Edit reminder",
-            headerStyle: {
-              backgroundColor: "#06f",
-              borderBottomRightRadius: 30,
-              borderBottomLeftRadius: 30,
-            },
-            headerTintColor: "#fff",
-            headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
-          }}
-        />
-      </Stack>
+          <Stack.Screen
+            name="edit-reminder/index"
+            options={{
+              headerShown: true,
+              title: "Edit reminder",
+              headerStyle: {
+                backgroundColor: "#06f",
+                borderBottomRightRadius: 30,
+                borderBottomLeftRadius: 30,
+              },
+              headerTintColor: "#fff",
+              headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
+            }}
+          />
+        </Stack>
     </>
   );
 }

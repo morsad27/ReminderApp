@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./styles/headerStyles";
 import { ReminderContext } from "../constant/reminderContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useFocusEffect } from "@react-navigation/native"; // Import focus effect
+import { useFocusEffect } from "@react-navigation/native";
 
 const Header = () => {
   const { reminderList } = useContext(ReminderContext);

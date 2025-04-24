@@ -10,6 +10,8 @@ import React, { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "../../components/styles/todoStyle";
+import { useFocusEffect } from "@react-navigation/native";
+import { router } from "expo-router";
 
 const Todo = ({ showAddButton = true }) => {
   const [todoList, setTodoList] = useState([]);
@@ -40,11 +42,19 @@ const Todo = ({ showAddButton = true }) => {
       const updatedList = todoList.filter((item) => item.id !== id);
       setTodoList(updatedList);
       await saveTodoList(updatedList);
+      router.push('/home')
     } catch (err) {
       alert("Error removing to-do: " + err);
     }
   };
-
+  
+    // Reload data when screen comes into focus
+    useFocusEffect(
+      React.useCallback(() => {
+        loadTodoList();
+      }, [])
+    );
+  
   const loadTodoList = async () => {
     try {
       const storedList = await AsyncStorage.getItem("TodoList");
