@@ -2,7 +2,6 @@ import { StyleSheet } from "react-native";
 import { Dimensions } from "react-native";
 
 const windowwidth = Dimensions.get("screen").width;
-// const windowheight = Dimensions.get("screen").height;
 
 const isTablet = windowwidth > 600;
 const isNokia = windowwidth < 390;

@@ -174,7 +174,7 @@ const Index = ({ showAddReminder = true, showlist = false, editReminder }) => {
       return Alert.alert("Invalid Time", "Please select a future time.");
     }
 
-    const notificationId = await scheduleExpoNotification(title, reminderDate); // <-- schedule and get ID
+    const notificationId = await scheduleExpoNotification(title, reminderDate)
 
     const newReminder = {
       id: editingId || Date.now().toString(),
