@@ -1,3 +1,4 @@
+
 ---
 
 # Re-Mind App 🧠⏰
@@ -48,5 +49,3 @@ This app is for **educational purposes only**.
 If you're viewing this in the future, some features might break due to **deprecated or outdated dependencies/syntax**. Feel free to update or fork it as needed!
 
 ---
-
-Let me know if you'd like to add badges, screenshots, or a license section too?
