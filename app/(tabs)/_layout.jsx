@@ -12,14 +12,14 @@ const TabsLayout = () => {
           <Tabs
             screenOptions={({ route }) => ({
               tabBarShowLabel: true,
-              tabBarActiveTintColor: "#fff",
-              tabBarInactiveTintColor: "#fff",
+              tabBarActiveTintColor: "#ffffff",
+              tabBarInactiveTintColor: "#ffffff",
               tabBarStyle: {
                 borderTopLeftRadius: 50,
                 borderTopRightRadius: 50,
                 paddingTop: 15,
                 height: 88,
-                backgroundColor: "#06f",
+                backgroundColor: "#0066ff",
                 position: "absolute",
                 bottom: 0,
                 left: 0,
@@ -39,7 +39,7 @@ const TabsLayout = () => {
                       style={{
                         height: 4,
                         width: 60,
-                        backgroundColor: "#fff",
+                        backgroundColor: "#ffffff",
                         borderRadius: 2,
                         marginBottom: 5,
                       }}
@@ -66,11 +66,11 @@ const TabsLayout = () => {
                 headerShown: false,
                 title: "Home",
                 headerStyle: {
-                  backgroundColor: "#06f",
+                  backgroundColor: "#0066ff",
                   borderBottomRightRadius: 30,
                   borderBottomLeftRadius: 30,
                 },
-                headerTintColor: "#fff",
+                headerTintColor: "#ffffff",
                 headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
               }}
             />
@@ -80,9 +80,9 @@ const TabsLayout = () => {
                 headerShown: true,
                 title: "Reminders",
                 headerStyle: {
-                  backgroundColor: "#06f",
+                  backgroundColor: "#0066ff",
                 },
-                headerTintColor: "#fff",
+                headerTintColor: "#ffffff",
                 headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
               }}
             />
@@ -92,9 +92,9 @@ const TabsLayout = () => {
                 headerShown: true,
                 title: "To-Dos",
                 headerStyle: {
-                  backgroundColor: "#06f",
+                  backgroundColor: "#0066ff",
                 },
-                headerTintColor: "#fff",
+                headerTintColor: "#ffffff",
                 headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
               }}
             />

@@ -362,7 +362,7 @@ const Index = ({ showAddReminder = true, showlist = false, editReminder }) => {
               style={styles.closeButton}
               onPress={() => setIsCalendarVisible(false)}
             >
-              <Text style={{ color: "#fff" }}>Close</Text>
+              <Text style={{ color: "#ffffff" }}>Close</Text>
             </Pressable>
           </View>
         </View>

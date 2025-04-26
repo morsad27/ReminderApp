@@ -29,7 +29,7 @@ export default function RootLayout() {
 
   return (
     <>
-      <StatusBar style="light" backgroundColor="#06f" />
+      <StatusBar style="light" backgroundColor="#0066ff" />
 
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
@@ -40,11 +40,11 @@ export default function RootLayout() {
             headerShown: true,
             title: "Add New Reminder",
             headerStyle: {
-              backgroundColor: "#06f",
+              backgroundColor: "#0066ff",
               borderBottomRightRadius: 30,
               borderBottomLeftRadius: 30,
             },
-            headerTintColor: "#fff",
+            headerTintColor: "#ffffff",
             headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
           }}
         />
@@ -55,11 +55,11 @@ export default function RootLayout() {
             headerShown: true,
             title: "Edit reminder",
             headerStyle: {
-              backgroundColor: "#06f",
+              backgroundColor: "#0066ff",
               borderBottomRightRadius: 30,
               borderBottomLeftRadius: 30,
             },
-            headerTintColor: "#fff",
+            headerTintColor: "#ffffff",
             headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
           }}
         />
@@ -69,11 +69,11 @@ export default function RootLayout() {
             headerShown: true,
             title: "Edit todo",
             headerStyle: {
-              backgroundColor: "#06f",
+              backgroundColor: "#0066ff",
               borderBottomRightRadius: 30,
               borderBottomLeftRadius: 30,
             },
-            headerTintColor: "#fff",
+            headerTintColor: "#ffffff",
             headerTitleStyle: { fontWeight: "bold", alignSelf: "center" },
           }}
         />

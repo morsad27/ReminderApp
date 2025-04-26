@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingTop: "10%",
     alignItems: "center",
-    backgroundColor: "#06f",
+    backgroundColor: "#0066ff",
     borderBottomLeftRadius: isNokia ? 20 : isTablet ? 40 : 30,
     borderBottomRightRadius: isNokia ? 20 : isTablet ? 40 : 30,
     paddingBottom: 20,
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   logoText: {
     fontSize: isNokia ? 22 : isTablet ? 30 : 26,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#ffffff",
   },
   circleRow: {
     display: "flex",
@@ -38,27 +38,27 @@ const styles = StyleSheet.create({
     height: isNokia ? 130 : isTablet ? 180 : 160,
     width: isNokia ? 130 : isTablet ? 180 : 160,
     borderWidth: 2,
-    borderColor: "#fff",
+    borderColor: "#ffffff",
     justifyContent: "center",
   },
   text: {
     fontSize: isNokia ? 34 : isTablet ? 38 : 36,
     alignSelf: "center",
     fontWeight: "500",
-    color: "#fff",
+    color: "#ffffff",
   },
   textTitle: {
     fontSize: isNokia ? 20 : isTablet ? 24 : 22,
     alignSelf: "center",
     fontWeight: "500",
-    color: "#fff",
+    color: "#ffffff",
   },
   bottomText: {
     paddingTop: 10,
     fontSize: isNokia ? 16 : isTablet ? 20 : 18,
     alignSelf: "center",
     fontWeight: "500",
-    color: "#fff",
+    color: "#ffffff",
   },
 });
 

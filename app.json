@@ -14,8 +14,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/bg.png",
-        "backgroundColor": "#06f"
-      }
+        "backgroundColor": "#"
+      },
+      "package": "com.morsad.reminderapp"
     },
     "web": {
       "bundler": "metro",
@@ -30,12 +31,20 @@
           "image": "./assets/images/bg.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#06f"
+          "backgroundColor": "#0066ff"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "2b80f5e4-92ee-42ba-881c-ac16b4c6582e"
+      }
     }
   }
 }

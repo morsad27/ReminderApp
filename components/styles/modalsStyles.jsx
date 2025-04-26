@@ -9,10 +9,10 @@ export const styles = StyleSheet.create({
   },
   modalContent: {
     width: "100%",
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
     borderRadius: 24,
     padding: 20,
-    shadowColor: "#000",
+    shadowColor: "#000000",
     shadowOpacity: 0.2,
     shadowOffset: { width: 0, height: 5 },
     shadowRadius: 10,
