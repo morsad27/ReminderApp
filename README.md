@@ -1,5 +1,7 @@
-This is a reminder app for my learning experience purposes only. It is a CRUD reminder application using expo-notification and async-storage of react native expo.
+This is a reminder app for my learning experience purposes only.
 
+A mobile app built with react native which allows users to create reminders, be notified when they are due, as well as manage a to do list.
+It is a CRUD project application using expo-notification and async-storage of react native expo.
 
 how to run this app
 ```
