@@ -74,23 +74,7 @@ const EditTodoModal = () => {
               <Text style={styles.iconText}>Save</Text>
             </Pressable>
 
-            <Pressable
-              style={styles.actionButton}
-              onPress={() =>
-                Alert.alert(
-                  "Confirm Delete",
-                  "Are you sure you want to delete this to-do?",
-                  [
-                    { text: "Cancel", style: "cancel" },
-                    {
-                      text: "Delete",
-                      style: "destructive",
-                      onPress: deleteTodo,
-                    },
-                  ]
-                )
-              }
-            >
+            <Pressable style={styles.actionButton} onPress={deleteTodo}>
               <Image
                 source={require("../../assets/images/delete.png")}
                 style={styles.icon}
