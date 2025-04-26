@@ -149,7 +149,7 @@ const Index = ({ showAddReminder = true, showlist = false, editReminder }) => {
       setReminders(updatedList);
       await AsyncStorage.setItem("reminders", JSON.stringify(updatedList));
 
-      Alert.alert("Success", "Reminder updated successfully!");
+      // Alert.alert("Success", "Reminder updated successfully!");
       router.push("/home");
     } catch (err) {
       alert("Update error: " + err);
@@ -201,7 +201,7 @@ const Index = ({ showAddReminder = true, showlist = false, editReminder }) => {
     setSelectedTime("Select Time");
     setEditingId(null);
 
-    Alert.alert("Added successfully");
+    // Alert.alert("Added successfully");
     router.push("/home");
   };
 
@@ -296,7 +296,6 @@ const Index = ({ showAddReminder = true, showlist = false, editReminder }) => {
                   setSelectedTime("Select Time");
                   setEditingId(null);
 
-                  Alert.alert("Success", "Reminder deleted successfully!");
                 }}
               >
                 <Text style={styles.addButtonText}>Delete</Text>
