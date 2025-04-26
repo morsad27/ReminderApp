@@ -13,8 +13,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/bg.png",
-        "backgroundColor": "#"
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#0066ff"
       },
       "package": "com.morsad.reminderapp"
     },
@@ -28,7 +28,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/bg.png",
+          "image": "./assets/images/icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#0066ff"
