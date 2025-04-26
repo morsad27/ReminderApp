@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
   },
   text: {
     fontSize: 20,
@@ -22,15 +22,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     paddingVertical: 10,
     borderWidth: 2,
-    borderColor: "#06f",
+    borderColor: "#0066ff",
   },
   capsuleActive: {
     borderRadius: 10,
     paddingHorizontal: 25,
     paddingVertical: 10,
     borderWidth: 1,
-    borderColor: "#06f",
-    backgroundColor: "#06f",
+    borderColor: "#0066ff",
+    backgroundColor: "#0066ff",
   },
   capsuleText: {
     fontSize: 16,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   capsuleTextActive: {
     fontSize: 16,
     fontWeight: "500",
-    color: "#fff",
+    color: "#ffffff",
   },
   center:{
     alignSelf: 'center',

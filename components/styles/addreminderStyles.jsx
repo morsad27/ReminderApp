@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
   },
   mainContainer: {
     padding: 20,
@@ -16,20 +16,20 @@ export const styles = StyleSheet.create({
   input: {
     minHeight: 55,
     borderWidth: 1,
-    borderColor: "#000",
+    borderColor: "#000000",
     paddingHorizontal: 15,
     fontSize: 16,
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
     color: "#333",
     borderRadius: 10,
   },
   multiInput: {
     minHeight: 100,
     borderWidth: 1,
-    borderColor: "#000",
+    borderColor: "#000000",
     paddingHorizontal: 15,
     fontSize: 16,
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
     color: "#333",
     borderRadius: 10,
   },
@@ -38,10 +38,10 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     minHeight: 55,
     borderWidth: 1,
-    borderColor: "#000",
+    borderColor: "#000000",
     paddingHorizontal: 15,
     fontSize: 16,
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
     color: "#333",
     borderRadius: 10,
   },
@@ -58,7 +58,7 @@ export const styles = StyleSheet.create({
     fontWeight: "500",
   },
   addButton: {
-    backgroundColor: "#06f",
+    backgroundColor: "#0066ff",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 10,
@@ -90,7 +90,7 @@ export const styles = StyleSheet.create({
   },
   addButtonText: {
     fontSize: 16,
-    color: "#fff",
+    color: "#ffffff",
     fontWeight: "bold",
   },
   modalContainer: {
@@ -106,7 +106,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "rgba(0,0,0,0.5)",
   },
   modalContent: {
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
     paddingVertical: 10,
     borderRadius: 10,
     alignItems: "center",
@@ -129,7 +129,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
     padding: 15,
     borderRadius: 8,
     marginVertical: 5,
@@ -137,13 +137,13 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.5,
     shadowRadius: 5,
-    shadowColor: "#000",
+    shadowColor: "#000000",
   },
   reminderTitle: {
     paddingRight: 10,
     flex: 1,
     fontSize: 16,
-    color: "#000",
+    color: "#000000",
     fontWeight: "500",
   },
   editButton: {
@@ -151,7 +151,7 @@ export const styles = StyleSheet.create({
     marginRight: -20,
   },
   editButtonText: {
-    color: "#fff",
+    color: "#ffffff",
     fontWeight: "bold",
   },
   deleteButton: {

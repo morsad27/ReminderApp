@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
   },
   addButton: {
     marginTop: 20,
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     borderRadius: 12,
     paddingVertical: 12,
     paddingHorizontal: 20,
-    shadowColor: "#000",
+    shadowColor: "#000000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 6,
@@ -30,12 +30,12 @@ export const styles = StyleSheet.create({
     width: 20,
     height: 20,
     marginRight: 8,
-    tintColor: "#fff",
+    tintColor: "#ffffff",
   },
 
   addButtonText: {
     fontSize: 20,
     fontWeight: "600",
-    color: "#fff",
+    color: "#ffffff",
   },
 });
