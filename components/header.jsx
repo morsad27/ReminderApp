@@ -58,7 +58,7 @@ const Header = () => {
           <Text style={styles.textTitle}>To-Dos</Text>
         </View>
       </View>
-      <Text style={styles.bottomText}>Lorem ipsum is a dummy text</Text>
+      <Text style={styles.bottomText}>"Time is precious—use it wisely."</Text>
     </View>
   );
 };
