@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Reminder",
-    "slug": "Reminder",
+    "slug": "reminderapp",
     "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
